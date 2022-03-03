@@ -1,0 +1,4 @@
+(VOID, char* format...) printf
+    {
+        
+    }

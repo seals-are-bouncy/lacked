@@ -1,0 +1,7 @@
+-- include io.l
+-- include foo.l
+
+(INT) main:
+    {
+        ("Hello World!"):printf;
+    }

@@ -1,10 +1,6 @@
 #ifndef _H_LEXER
 #define _H_LEXER
 
-//#include "function.h"
-
-//struct FUNCTION_ARGUMENT;
-
 enum TOKEN_TYPE {
 	FUNCTION_DEFINITION,
 	FUNCTION_CALL,
