@@ -3,7 +3,7 @@
 #include <string.h>
 
 void usage(arguments *a) {
-	printf("usage: ll [-s] [-v] [-?] [-o file] file\n");
+	printf("usage: ll [-s] [-v] [-?] [-o file] file(s)\n");
 	printf("-s				omit all output\n");
 	printf("-v				print the version\n");
 	printf("-?				print this screen\n");

@@ -1,0 +1,19 @@
+#ifndef _H_TYPES
+#define _H_TYPES
+
+enum TYPES {
+	VOID,
+	INT,
+	INT32,
+	INT_64,
+	UINT,
+	UINT_32,
+	UINT_64,
+	FLOAT,
+	UFLOAT,
+	DOUBLE,
+	DOUBLE_16,
+	DOUBLE_32,
+};
+
+#endif
