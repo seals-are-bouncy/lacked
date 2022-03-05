@@ -1,10 +1,11 @@
 CC=/usr/bin/gcc
-CFLAGS=-march=native -O2 -Wall
+CFLAGS=-march=native -O2 -Wall -std=c11
 
 OBJ=	main.o	\
 		argss.o	\
 		stack.o	\
 		lexer.o	\
+		util.o  \
 
 all: ll
 

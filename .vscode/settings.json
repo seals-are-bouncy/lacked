@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.spwn": "spwn",
+        "NEOMakefile": "makefile",
+        "*.hbuild": "c",
+        "system_error": "c",
+        "stdbool.h": "c"
+    }
+}

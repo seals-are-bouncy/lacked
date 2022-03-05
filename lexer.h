@@ -12,5 +12,7 @@ struct _abstract_syntax_tree
 	abstract_syntax_tree *right;
 };
 
+// Lexical Analysis
+void lex_anal(char *s);
 
 #endif
