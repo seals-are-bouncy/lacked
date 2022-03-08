@@ -6,9 +6,11 @@
 
 void lex_anal(char *s)
 {
+		printf("Starting lexical analysis.\n");
+
     union lexer
     {
-        bool is; // In something
+				bool is; // In something
         bool pp; // Preprocessor
 
         char *tk; // Token string.
@@ -16,22 +18,31 @@ void lex_anal(char *s)
         char pc; // Previous character
     } lex;
 
+		lex.is = false;
+		lex.pp = false;
+		lex.tk = "";
+		lex.pc = '\0';
+
     for (size_t i = 0; i < strlen(s); i++)
     {
-        if (!lex.is)
+        if (lex.is == false)
         {
-            if (!lex.pp)
+            if (lex.pp == false)
             {
-                if (s[i] == '-' && lex.pc == '-')
+                if (s[i] == '-' && s[i + 1] == '-')
                 {
+										//printf("PREPROCESSOR\n");
                     lex.pp = true;
+										i++;
                 }
             }
             else
             {
-                if(s[i] == '\n')
+								printf("\nInside preprocessor.\n");
+                if(s[i] == '-' && s[i + 1] == '-')
                 {
                     lex.pp = false;
+										printf("\nPreprocessor");
                 }
                 strcat_c(lex.tk, s[i]);
             }
