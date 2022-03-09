@@ -20,7 +20,7 @@ void lex_anal(char *s)
 				// check for tokens
 				if(lex.in_statement == false) {
 					if(s[i] == '-' && s[i + 1] == '-') {
-						i++;
+						i += 2;
 							char t[FILENAME_MAX];
 							int ti = 0;
 						for (size_t j = i; j < strlen(s); j++) {

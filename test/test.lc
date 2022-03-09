@@ -1,5 +1,5 @@
--- include io.l --
--- include foo.l --
+-- include io.lc
+-- include foo.lc
 
 (INT) main:
     {
