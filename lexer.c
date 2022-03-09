@@ -1,5 +1,6 @@
 #include "lexer.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include "util.h"
@@ -8,49 +9,34 @@ void lex_anal(char *s)
 {
 		printf("Starting lexical analysis.\n");
 
-    union lexer
-    {
-				bool is; // In something
-        bool pp; // Preprocessor
-
-        char *tk; // Token string.
-
-        char pc; // Previous character
-    } lex;
-
-		lex.is = false;
-		lex.pp = false;
-		lex.tk = "";
-		lex.pc = '\0';
+		union lexer {
+			bool in_statement;
+			bool in_preprocessor;
+		} lex;
+		lex.in_statement = false;
 
     for (size_t i = 0; i < strlen(s); i++)
     {
-        if (lex.is == false)
-        {
-            if (lex.pp == false)
-            {
-                if (s[i] == '-' && s[i + 1] == '-')
-                {
-										//printf("PREPROCESSOR\n");
-                    lex.pp = true;
-										i++;
-                }
-            }
-            else
-            {
-								printf("\nInside preprocessor.\n");
-                if(s[i] == '-' && s[i + 1] == '-')
-                {
-                    lex.pp = false;
-										printf("\nPreprocessor");
-                }
-                strcat_c(lex.tk, s[i]);
-            }
-        }
+				// check for tokens
+				if(lex.in_statement == false) {
+					if(s[i] == '-' && s[i + 1] == '-') {
+						i++;
+							char t[FILENAME_MAX];
+							int ti = 0;
+						for (size_t j = i; j < strlen(s); j++) {
+							//i++;
+							if(s[j] != '\n') {
+								t[ti++] = s[j];
+							} else {
+								break;
+							}
+						}
+						i += ti;
+						printf("\nPREPROCESSOR%s\n", t);
+					}
+				}
 
+				// print
         printf("%c", s[i]);
-
-        // Set previous character to current character
-        lex.pc = s[i];
-    }
+		}
 }
